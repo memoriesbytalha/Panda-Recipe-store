@@ -2,6 +2,17 @@
 
 A Django-based recipe management application where users can view, add, update, and delete recipes. The app includes user authentication (login and registration) and features a user-friendly interface for managing recipe information.
 
+## Screenshots
+
+![Login Page](UI/login.png)
+*Login Page - User authentication interface*
+
+![Add Recipe](UI/add_recipe.png)
+*Add Recipe - Form to create new recipes*
+
+![Recipe Detail](UI/recipe_detail.png)
+*Recipe Detail - View complete recipe information*
+
 ## Features
 
 - **User Authentication**: Login, register, and logout functionality using Django's built-in user model.
