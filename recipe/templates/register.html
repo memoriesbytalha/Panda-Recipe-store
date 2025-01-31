@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{%block start%}
+<style>
+    body {
+        background-color: #fff9eb; /* Light creamy background */
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    /* Center the container */
+    .container {
+        max-width: auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    /* Form Title */
+    h1.text-center {
+        color: #ff7b00; /* Warm orange */
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    
+    /* Form Labels */
+    .form-label {
+        font-weight: 600;
+        color: #5c3d02; /* Dark chocolate brown */
+    }
+    
+    /* Input Fields */
+    .form-control {
+        border-radius: 8px;
+        border: 2px solid #ffa833; /* Soft orange */
+        padding: 10px;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    /* Input Focus Effect */
+    .form-control:focus {
+        border-color: #ff7b00;
+        box-shadow: 0 0 10px rgba(255, 123, 0, 0.3);
+    }
+    
+    /* Textarea */
+    textarea.form-control {
+        min-height: 100px;
+        resize: none;
+    }
+    
+    /* File Input */
+    input[type="file"] {
+        background-color: #fff;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    
+    /* Submit Button */
+    .btn-success {
+        background: linear-gradient(45deg, #ff7b00, #ff9500);
+        border: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-transform: uppercase;
+        transition: background 0.3s ease-in-out, transform 0.2s;
+        border-radius: 8px;
+    }
+    
+    .btn-success:hover {
+        background: linear-gradient(45deg, #ff5e00, #ff7b00);
+        transform: scale(1.05);
+    }
+    
+    /* Form Box Shadow on Hover
+    .container:hover {
+        transform: translateY(90px);
+    } */
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            width: 90%;
+        }
+    }
+    
+    /* Table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 30px;
+        border: 1px solid #000000;  /* Add border to the table */
+    }
+    
+    th, td {
+        border: 1px solid #020000;  /* Add border to table cells */
+        padding: 8px;  /* Add some padding inside cells */
+        text-align: left;  /* Align text to the left */
+    }
+    
+    th {
+        background-color: #000000;  /* Optional: Set a background color for table headers */
+        font-weight: bold;
+    }
+    </style>
+<div class="container mt-5">
+    <form class="shadow-lg p-3 mb-5" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h1 class="text-center">Registration Form</h1>
+        <hr>
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert" style="background-color:#ff7b00">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+        <div class="form-group mb-2">
+            <label for="exampleInputEmail1">User Name</label>   
+            <input type="text" name="username" class="form-control" id="exampleInputEmail1" placeholder="Enter Username">
+        </div>
+        <div class="form-group mb-2">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+          <div class="form-group mb-2">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+          <small class="form-text text-muted">Already have an account? <a href="{% url 'login'%}">Login</a></small><br>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          
+    </form>
+        
+       
+</div>
+
+
+{%endblock%}
